@@ -1,0 +1,54 @@
+value,gas,emissions_output to FAIR
+0.001,CO2 FFI,MtCO2 to GtCO2
+0.001,CO2 AFOLU,MtCO2 to GtCO2
+0.001,CO2,MtCO2 to GtCO2
+0.001,CO2e,MtCO2e to GtCO2
+1,CH4,-
+1,N2O,-
+1,Sulfur,-
+1,BC,-
+1,OC,-
+1,NH3,-
+1,NOx,-
+1,VOC,-
+1,CO,-
+0.001,CFC-11,Mt to kt
+0.001,CFC-12,Mt to kt
+0.001,CFC-113,Mt to kt
+0.001,CFC-114,Mt to kt
+0.001,CFC-115,Mt to kt
+0.001,HCFC-22,Mt to kt
+0.001,HCFC-141b,Mt to kt
+0.001,HCFC-142b,Mt to kt
+0.001,CCl4,Mt to kt
+0.001,CH3Cl,Mt to kt
+0.001,CH3Br,Mt to kt
+0.001,Halon-1202,Mt to kt
+0.001,Halon-1211,Mt to kt
+0.001,Halon-1301,Mt to kt
+0.001,Halon-2402,Mt to kt
+0.001,CF4,Mt to kt
+0.001,C2F6,Mt to kt
+0.001,C3F8,Mt to kt
+0.001,c-C4F8,Mt to kt
+0.001,C4F10,Mt to kt
+0.001,C5F12,Mt to kt
+0.001,C6F14,Mt to kt
+0.001,HFC-23,Mt to kt
+0.001,HFC-32,Mt to kt
+0.001,HFC-41,Mt to kt
+0.001,HFC43-10,Mt to kt
+0.001,HFC-125,Mt to kt
+0.001,HFC-134,Mt to kt
+0.001,HFC-134a,Mt to kt
+0.001,HFC-143,Mt to kt
+0.001,HFC-143a,Mt to kt
+0.001,HFC-152a,Mt to kt
+0.001,HFC-227ea,Mt to kt
+0.001,HFC-236fa,Mt to kt
+0.001,HFC-245fa,Mt to kt
+0.001,HFC-365mfc,Mt to kt
+0.001,SF6,Mt to kt
+0.001,Methyl chloroform,Mt to kt
+0.001,NF3,Mt to kt
+0.001,HFC-4310mee,Mt to kt

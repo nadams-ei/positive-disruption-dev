@@ -6,7 +6,7 @@ from dash import Input, Output, callback, dcc, html
 dash.register_page(__name__, path="/Climate", title="Climate", name="Climate")
 
 df = pd.read_csv(
-    "~/positive-disruption/podi/data/output/climate/climate_output.csv"
+    "~/positive-disruption-dev/DeployWithRender/src/data/output/climate/climate_output.csv"
 )
 
 layout = html.Div(
@@ -160,7 +160,9 @@ def update_graph(
     stack_type = {"none": None, "tonexty": "1"}
 
     df = pd.read_csv(
-        "~/positive-disruption/podi/data/output/climate/" + dataset + ".csv"
+        "~/positive-disruption-dev/DeployWithRender/src/data/output/climate/"
+        + dataset
+        + ".csv"
     )
 
     yaxis_unit = {
@@ -211,9 +213,7 @@ def update_graph(
                 name=sub,
                 line=dict(width=2, dash="dash"),
                 x=filtered_df["year"].unique().astype(int),
-                y=filtered_df[filtered_df[groupby] == sub][
-                    yaxis_unit[variable]
-                ].values,
+                y=filtered_df[filtered_df[groupby] == sub][yaxis_unit[variable]].values,
                 fill=chart_type,
                 stackgroup=stack_type[chart_type],
                 showlegend=True,
@@ -227,9 +227,7 @@ def update_graph(
                 x=filtered_df["year"]
                 .unique()
                 .astype(int)[filtered_df["year"].unique().astype(int) <= 2022],
-                y=filtered_df[filtered_df[groupby] == sub][
-                    yaxis_unit[variable]
-                ].values,
+                y=filtered_df[filtered_df[groupby] == sub][yaxis_unit[variable]].values,
                 fill=chart_type,
                 stackgroup=stack_type[chart_type],
                 showlegend=False,

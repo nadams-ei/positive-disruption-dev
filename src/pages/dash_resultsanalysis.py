@@ -12,13 +12,13 @@ dash.register_page(
 )
 
 df = pd.read_csv(
-    "~/positive-disruption/podi/data/adoption_analog_output_historical.csv"
+    "~/positive-disruption-dev/DeployWithRender/src/data/adoption_analog_output_historical.csv"
 )
 df2 = pd.read_parquet(
-    "~/positive-disruption/podi/data/adoption_output_historical.parquet"
+    "~/positive-disruption-dev/DeployWithRender/src/data/adoption_output_historical.parquet"
 ).reset_index()
 df3 = pd.read_csv(
-    "~/positive-disruption/podi/data/adoption_output_projections.csv"
+    "~/positive-disruption-dev/DeployWithRender/src/data/adoption_output_projections.csv"
 )
 
 layout = html.Div(
@@ -508,7 +508,9 @@ def update_graph(
 ):
     {"none": None, "tonexty": "1"}
 
-    df = pd.read_csv("~/positive-disruption/podi/data/" + dataset + ".csv")
+    df = pd.read_csv(
+        "~/positive-disruption-dev/DeployWithRender/src/data/" + dataset + ".csv"
+    )
 
     fig = go.Figure()
 
@@ -587,7 +589,7 @@ def update_graph(
     stack_type = {"none": None, "tonexty": "1"}
 
     df2 = pd.read_parquet(
-        "~/positive-disruption/podi/data/" + dataset2 + ".parquet"
+        "~/positive-disruption-dev/DeployWithRender/src/data/" + dataset2 + ".parquet"
     ).reset_index()
 
     fig2 = go.Figure()
@@ -738,7 +740,9 @@ def update_graph(
 
     stack_type = {"none": None, "tonexty": "1"}
 
-    df3 = pd.read_csv("~/positive-disruption/podi/data/" + dataset3 + ".csv")
+    df3 = pd.read_csv(
+        "~/positive-disruption-dev/DeployWithRender/src/data/" + dataset3 + ".csv"
+    )
 
     fig3 = go.Figure()
 

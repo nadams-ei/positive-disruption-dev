@@ -10,26 +10,18 @@ data_end_year = 2100
 dataset = ["energy_output"]
 
 df = pd.read_parquet(
-    "~/positive-disruption/podi/data/" + dataset[0] + ".parquet"
+    "~/positive-disruption-dev/DeployWithRender/src/data/" + dataset[0] + ".parquet"
 ).reset_index()
 
 
 clst = df.columns[
-    (
-        ~df.columns.isin(
-            f"{i}" for i in range(data_start_year, data_end_year + 1)
-        )
-    )
+    (~df.columns.isin(f"{i}" for i in range(data_start_year, data_end_year + 1)))
     & (~df.columns.isin(["product_short", "flow_short"]))
 ].tolist()
 
 df.set_index(
     df.columns[
-        (
-            ~df.columns.isin(
-                f"{i}" for i in range(data_start_year, data_end_year + 1)
-            )
-        )
+        (~df.columns.isin(f"{i}" for i in range(data_start_year, data_end_year + 1)))
         & (~df.columns.isin(["product_short", "flow_short"]))
     ].tolist(),
     inplace=True,

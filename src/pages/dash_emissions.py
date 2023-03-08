@@ -7,16 +7,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 from dash import Input, Output, callback, dcc, html
 
-dash.register_page(
-    __name__, path="/Emissions", title="Emissions", name="Emissions"
-)
+dash.register_page(__name__, path="/Emissions", title="Emissions", name="Emissions")
 
 data_start_year = 1990
 data_end_year = 2020
 proj_end_year = 2100
 
 df = pd.read_parquet(
-    "~/positive-disruption/podi/data/emissions_output_co2e.parquet"
+    "~/positive-disruption-dev/DeployWithRender/src/data/emissions_output_co2e.parquet"
 ).reset_index()
 
 layout = html.Div(
@@ -49,9 +47,7 @@ layout = html.Div(
                             value=[data_start_year, proj_end_year],
                             marks={
                                 str(year): str(year)
-                                for year in range(
-                                    data_start_year, proj_end_year + 1, 5
-                                )
+                                for year in range(data_start_year, proj_end_year + 1, 5)
                             },
                         ),
                     ],
@@ -68,9 +64,7 @@ layout = html.Div(
                             min=0,
                             max=100,
                             value=[100],
-                            marks={
-                                str(x): str(x) for x in range(0, 100 + 1, 5)
-                            },
+                            marks={str(x): str(x) for x in range(0, 100 + 1, 5)},
                         ),
                     ],
                 ),
@@ -351,7 +345,7 @@ def update_graph(
     }
 
     df = pd.read_parquet(
-        "~/positive-disruption/podi/data/" + dataset + ".parquet"
+        "~/positive-disruption-dev/DeployWithRender/src/data/" + dataset + ".parquet"
     )
 
     # make groupby an array if it is not already
@@ -394,9 +388,7 @@ def update_graph(
     ).T.fillna(0)
 
     if yaxis_type == "Cumulative":
-        filtered_df = filtered_df.loc[
-            str(date_range[0]) : str(date_range[1])
-        ].cumsum()
+        filtered_df = filtered_df.loc[str(date_range[0]) : str(date_range[1])].cumsum()
 
     if yaxis_type == "% of Total":
         groupnorm = "percent"
@@ -414,10 +406,7 @@ def update_graph(
         id_vars="year",
         var_name=groupby,
         value_name=str(yaxis_unit),
-    ).astype(
-        {k: "category" for k in groupby}
-        | {"year": "int", yaxis_unit: "float32"}
-    )
+    ).astype({k: "category" for k in groupby} | {"year": "int", yaxis_unit: "float32"})
 
     fig = go.Figure()
 
@@ -591,10 +580,7 @@ def update_graph(
         id_vars="year",
         var_name=groupby,
         value_name=str(yaxis_unit),
-    ).astype(
-        {k: "category" for k in groupby}
-        | {"year": "int", yaxis_unit: "float32"}
-    )
+    ).astype({k: "category" for k in groupby} | {"year": "int", yaxis_unit: "float32"})
 
     fig2 = go.Figure()
 
@@ -799,8 +785,6 @@ def update_graph(
     if yaxis_type == "% of Total":
         fig2.update_yaxes(title="% of Total")
     elif yaxis_type == "Cumulative":
-        fig2.update_yaxes(
-            title="Cumulative Emissions Mitigated, " + str(yaxis_unit)
-        )
+        fig2.update_yaxes(title="Cumulative Emissions Mitigated, " + str(yaxis_unit))
 
     return fig, fig2

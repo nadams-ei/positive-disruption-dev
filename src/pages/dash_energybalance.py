@@ -12,17 +12,13 @@ dash.register_page(
 data_start_year = 1990
 data_end_year = 2020
 
-df = pd.read_csv("/home/n/positive-disruption/podi/data/energy_historical.csv")
+df = pd.read_csv("src/data/energy_historical.csv")
 
-df = pd.read_csv("/home/n/positive-disruption/podi/data/energy_historical.csv")
+df = pd.read_csv("src/data/energy_historical.csv")
 
 df.set_index(
     df.columns[
-        (
-            ~df.columns.isin(
-                f"{i}" for i in range(data_start_year, data_end_year + 1)
-            )
-        )
+        (~df.columns.isin(f"{i}" for i in range(data_start_year, data_end_year + 1)))
     ].tolist(),
     inplace=True,
 )
@@ -530,9 +526,7 @@ layout = html.Div(
                             df.columns[
                                 df.columns.isin(
                                     f"{i}"
-                                    for i in range(
-                                        data_start_year, data_end_year + 1
-                                    )
+                                    for i in range(data_start_year, data_end_year + 1)
                                 )
                             ].tolist(),
                             "2020",
@@ -569,9 +563,7 @@ layout = html.Div(
 def update_graph(
     model, scenario, region, year, data_start_year=1990, data_end_year=2020
 ):
-    df = pd.read_csv(
-        "/home/n/positive-disruption/podi/data/energy_historical.csv"
-    )
+    df = pd.read_csv("src/data/energy_historical.csv")
 
     df.set_index(
         df.columns[
@@ -696,9 +688,7 @@ def update_graph(
     energy_balance = pd.concat(
         [
             energy_balance,
-            pd.DataFrame(energy_balance.sum(axis=1)).rename(
-                columns={0: "Total"}
-            ),
+            pd.DataFrame(energy_balance.sum(axis=1)).rename(columns={0: "Total"}),
         ],
         axis=1,
     )

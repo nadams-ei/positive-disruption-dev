@@ -5,8 +5,8 @@ from dash import Input, Output, callback, dcc, html
 
 dash.register_page(__name__, path="/AFOLU", title="AFOLU", name="AFOLU")
 
-df = pd.read_csv("~/src/data/afolu_output.csv")
-df2 = pd.read_csv("~/src/data/TNC/afolu_historical.csv")
+df = pd.read_csv("~/positive-disruption-dev/src/data/afolu_output.csv")
+df2 = pd.read_csv("~/positive-disruption-dev/src/data/TNC/afolu_historical.csv")
 
 layout = html.Div(
     [
@@ -372,7 +372,7 @@ def update_graph(
     # unit_val = {"Mha": 1, "ha": 1e6, "km2": 1e4}
     stack_type = {"none": None, "tonexty": "1"}
 
-    df = pd.read_csv("~/src/data/" + dataset + ".csv")
+    df = pd.read_csv("~/positive-disruption-dev/src/data/" + dataset + ".csv")
 
     filtered_df = (
         (
@@ -458,7 +458,7 @@ def update_graph(
         type="linear" if yaxis_type == "Linear" else "log",
     )
 
-    df2 = pd.read_csv("~/src/data/TNC/" + dataset2 + ".csv")
+    df2 = pd.read_csv("~/positive-disruption-dev/src/data/TNC/" + dataset2 + ".csv")
 
     filtered_df2 = (
         (

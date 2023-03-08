@@ -13,7 +13,7 @@ data_start_year = 1990
 data_end_year = 2020
 proj_end_year = 2100
 
-df = pd.read_parquet("~/data/emissions_output_co2e.parquet").reset_index()
+df = pd.read_parquet("~/project/src/data/emissions_output_co2e.parquet").reset_index()
 
 layout = html.Div(
     [
@@ -342,7 +342,7 @@ def update_graph(
         ),
     }
 
-    df = pd.read_parquet("~/data/" + dataset + ".parquet")
+    df = pd.read_parquet("~/project/src/data/" + dataset + ".parquet")
 
     # make groupby an array if it is not already
     if not isinstance(groupby, list):

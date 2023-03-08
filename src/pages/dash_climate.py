@@ -5,7 +5,7 @@ from dash import Input, Output, callback, dcc, html
 
 dash.register_page(__name__, path="/Climate", title="Climate", name="Climate")
 
-df = pd.read_csv("~/data/output/climate/climate_output.csv")
+df = pd.read_csv("~/project/src/data/output/climate/climate_output.csv")
 
 layout = html.Div(
     [
@@ -157,7 +157,7 @@ def update_graph(
 ):
     stack_type = {"none": None, "tonexty": "1"}
 
-    df = pd.read_csv("~/data/output/climate/" + dataset + ".csv")
+    df = pd.read_csv("~/project/src/data/output/climate/" + dataset + ".csv")
 
     yaxis_unit = {
         "Concentration": "PPM",

@@ -9,9 +9,7 @@ data_end_year = 2100
 
 dataset = ["energy_output"]
 
-df = pd.read_parquet(
-    "~/positive-disruption-dev/DeployWithRender/src/data/" + dataset[0] + ".parquet"
-).reset_index()
+df = pd.read_parquet("/src/data/" + dataset[0] + ".parquet").reset_index()
 
 
 clst = df.columns[

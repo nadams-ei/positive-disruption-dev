@@ -13,9 +13,7 @@ data_end_year = 2100
 
 dataset = ["energy_output"]
 
-df = pd.read_parquet(
-    "~/positive-disruption-dev/src/data/" + dataset[0] + ".parquet"
-).reset_index()
+df = pd.read_parquet("data/" + dataset[0] + ".parquet").reset_index()
 
 clst = df.columns[
     (~df.columns.isin(f"{i}" for i in range(data_start_year, data_end_year + 1)))
@@ -134,9 +132,7 @@ def update_graph(
 
     fig = go.Figure()
 
-    df = pd.read_parquet(
-        "~/positive-disruption-dev/src/data/" + dataset + ".parquet"
-    ).reset_index()
+    df = pd.read_parquet("data/" + dataset + ".parquet").reset_index()
 
     df.set_index(
         df.columns[

@@ -2,14 +2,14 @@ from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 import dash
 
+dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
 app = Dash(
-    __name__,
-    use_pages=True,
+    __name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc_css]
 )
 server = app.server
 
 app.layout = html.Div(
-    [
+    className="dbc"[
         html.Meta(
             charSet="utf-8",
         ),

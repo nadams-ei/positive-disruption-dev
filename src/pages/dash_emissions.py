@@ -33,7 +33,7 @@ layout = html.Div(
         html.Div(
             children=[
                 dcc.Graph(id="graphic-emissions"),
-                dcc.Graph(id="graphic-emissions-2"),
+                # dcc.Graph(id="graphic-emissions-2"),
                 html.Br(),
                 html.Label("Dataset", className="select-label"),
                 html.Div(
@@ -273,7 +273,7 @@ layout = html.Div(
 
 @callback(
     Output("graphic-emissions", "figure"),
-    Output("graphic-emissions-2", "figure"),
+    # Output("graphic-emissions-2", "figure"),
     Input("dataset", "value"),
     Input("date_range", "value"),
     Input("af_slider", "value"),
@@ -529,7 +529,7 @@ def update_graph(
         fig.update_yaxes(title="Cumulative Emissions, " + str(yaxis_unit))
 
     # Wedges chart
-
+    """
     filtered_df2 = (
         (
             (
@@ -795,5 +795,5 @@ def update_graph(
         fig2.update_yaxes(title="% of Total")
     elif yaxis_type == "Cumulative":
         fig2.update_yaxes(title="Cumulative Emissions Mitigated, " + str(yaxis_unit))
-
-    return fig, fig2
+    """
+    return (fig,)  # fig2

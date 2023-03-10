@@ -12,9 +12,9 @@ dash.register_page(
 data_start_year = 1990
 data_end_year = 2020
 
-df = pd.read_csv("src/data/energy_historical.csv")
+df = pd.read_csv("data/energy_historical.csv")
 
-df = pd.read_csv("src/data/energy_historical.csv")
+df = pd.read_csv("data/energy_historical.csv")
 
 df.set_index(
     df.columns[
@@ -563,7 +563,7 @@ layout = html.Div(
 def update_graph(
     model, scenario, region, year, data_start_year=1990, data_end_year=2020
 ):
-    df = pd.read_csv("src/data/energy_historical.csv")
+    df = pd.read_csv("data/energy_historical.csv")
 
     df.set_index(
         df.columns[

@@ -11,9 +11,9 @@ dash.register_page(
     name="Results Analysis",
 )
 
-df = pd.read_csv("src/data/adoption_analog_output_historical.csv")
-df2 = pd.read_parquet("src/data/adoption_output_historical.parquet").reset_index()
-df3 = pd.read_csv("src/data/adoption_output_projections.csv")
+df = pd.read_csv("data/adoption_analog_output_historical.csv")
+df2 = pd.read_parquet("data/adoption_output_historical.parquet").reset_index()
+df3 = pd.read_csv("data/adoption_output_projections.csv")
 
 layout = html.Div(
     [
@@ -502,7 +502,7 @@ def update_graph(
 ):
     {"none": None, "tonexty": "1"}
 
-    df = pd.read_csv("src/data/" + dataset + ".csv")
+    df = pd.read_csv("data/" + dataset + ".csv")
 
     fig = go.Figure()
 
@@ -580,7 +580,7 @@ def update_graph(
 
     stack_type = {"none": None, "tonexty": "1"}
 
-    df2 = pd.read_parquet("src/data/" + dataset2 + ".parquet").reset_index()
+    df2 = pd.read_parquet("data/" + dataset2 + ".parquet").reset_index()
 
     fig2 = go.Figure()
 
@@ -730,7 +730,7 @@ def update_graph(
 
     stack_type = {"none": None, "tonexty": "1"}
 
-    df3 = pd.read_csv("src/data/" + dataset3 + ".csv")
+    df3 = pd.read_csv("data/" + dataset3 + ".csv")
 
     fig3 = go.Figure()
 

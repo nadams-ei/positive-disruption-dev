@@ -22,7 +22,7 @@ df = (
             for k in pd.read_parquet("data/emissions_output_co2e.parquet").index.names
         }
         | {
-            j: "float32"
+            j: "float16"
             for j in pd.read_parquet("data/emissions_output_co2e.parquet").columns
         }
     )
@@ -415,7 +415,7 @@ def update_graph(
         id_vars="year",
         var_name=groupby,
         value_name=str(yaxis_unit),
-    ).astype({k: "category" for k in groupby} | {"year": "int", yaxis_unit: "float32"})
+    ).astype({k: "category" for k in groupby} | {"year": "int", yaxis_unit: "float16"})
 
     fig = go.Figure()
 
@@ -589,7 +589,7 @@ def update_graph(
         id_vars="year",
         var_name=groupby,
         value_name=str(yaxis_unit),
-    ).astype({k: "category" for k in groupby} | {"year": "int", yaxis_unit: "float32"})
+    ).astype({k: "category" for k in groupby} | {"year": "int", yaxis_unit: "float16"})
 
     fig2 = go.Figure()
 

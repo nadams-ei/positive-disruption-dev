@@ -9,7 +9,7 @@ app = Dash(
 server = app.server
 
 app.layout = html.Div(
-    className="dbc"[
+    [
         html.Meta(
             charSet="utf-8",
         ),
@@ -203,7 +203,8 @@ app.layout = html.Div(
         ),
         html.Br(),
         dash.page_container,
-    ]
+    ],
+    className="dbc",
 )
 
 

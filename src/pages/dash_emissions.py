@@ -13,7 +13,20 @@ data_start_year = 1990
 data_end_year = 2020
 proj_end_year = 2100
 
-df = pd.read_parquet("data/emissions_output_co2e.parquet").reset_index()
+df = (
+    pd.read_parquet("data/emissions_output_co2e.parquet")
+    .reset_index()
+    .astype(
+        {
+            k: "category"
+            for k in pd.read_parquet("data/emissions_output_co2e.parquet").index.names
+        }
+        | {
+            j: "float32"
+            for j in pd.read_parquet("data/emissions_output_co2e.parquet").columns
+        }
+    )
+)
 
 layout = html.Div(
     [
